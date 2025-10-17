@@ -5,6 +5,6 @@ import { createShortUrl, redirectToUrl } from '../controllers/urlController.js';
 const router = express.Router();
 
 router.post('/shorten', createShortUrl);
-router.get('/:shortId', redirectToUrl);
+router.get('/:shortID', redirectToUrl);
 
 export default router;
