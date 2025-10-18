@@ -64,3 +64,23 @@ export const redirectToUrl = async (req, res) => {
     });
   }
 };
+
+
+//top links
+
+
+export const getTopLinks=async(req,res)=>{
+  try {
+    const topLinks=await Url.find().sort({clicks:-1}).limit(10)
+
+    res.status(200).json({
+      success:true,
+       data: topLinks,
+    })
+  } catch (error) {
+      console.error("Error in getTopLinks:", error);
+    res.status(500).json({ 
+      success: false, 
+      message: "Internal Server Error" });
+  }
+}
